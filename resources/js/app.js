@@ -35,6 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
         button.style.right = "20px";
         document.body.appendChild(button);
         button.addEventListener("click", generatePDF);
+
+        const a = document.createElement("a");
+        a.textContent = "Editar PDF";
+        a.classList.add("btn", "btn-primary");
+        a.style.position = "fixed";
+        a.style.bottom = "70px";
+        a.style.right = "20px";
+        document.body.appendChild(a);
+        a.setAttribute("href","/prospecto/edit");
     };
 
     // Llamar a la función para inicializar el generador de PDF
