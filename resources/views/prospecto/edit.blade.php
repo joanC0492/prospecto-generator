@@ -16,8 +16,16 @@
 
     @if(session('success'))
     <div class="alert alert-success">
-    {{ session('success') }}
+      {{ session('success') }}
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", ()=> {
+        // Espera 2 segundos (2000 milisegundos) y luego recarga la página
+        setTimeout(function() {
+          window.location.reload();
+        }, 1000); // Ajusta el tiempo según sea necesario
+      });
+    </script>
   @endif
 
     <form action="{{ route('prospecto.update') }}" method="POST" enctype="multipart/form-data">
@@ -204,14 +212,6 @@
     menubar: false, // Oculta la barra de menú
     height: 300, // Altura del editor
     branding: false, // Oculta la marca de TinyMCE
-    });
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", ()=> {
-      // Espera 2 segundos (2000 milisegundos) y luego recarga la página
-      setTimeout(function() {
-        window.location.reload();
-      }, 1000); // Ajusta el tiempo según sea necesario
     });
   </script>
 @endsection
