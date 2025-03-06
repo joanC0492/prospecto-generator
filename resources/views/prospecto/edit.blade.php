@@ -206,4 +206,12 @@
     branding: false, // Oculta la marca de TinyMCE
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", ()=> {
+      // Espera 2 segundos (2000 milisegundos) y luego recarga la página
+      setTimeout(function() {
+        window.location.reload();
+      }, 1000); // Ajusta el tiempo según sea necesario
+    });
+  </script>
 @endsection
