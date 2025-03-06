@@ -1,0 +1,495 @@
+$c-primary: #4bacc6;
+$c-secondary: #fde9d9;
+$c-tertiary: #2282c7;
+
+// Fuentes
+// Definir las fuentes
+@font-face {
+  font-family: "Segoe UI";
+  src: url("./fonts/segoeui/segoeui.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Segoe UI Italic";
+  src: url("./fonts/segoeui/segoeuii.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Segoe UI Light";
+  src: url("./fonts/segoeui/segoeuil.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Segoe UI Bold";
+  src: url("./fonts/segoeui/segoeuib.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Segoe UI Bold Italic";
+  src: url("./fonts/segoeui/seguibli.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Segoe UI Semibold";
+  src: url("./fonts/segoeui/seguisb.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Segoe UI Semibold Italic";
+  src: url("./fonts/segoeui/seguisbi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Segoe UI Light Italic";
+  src: url("./fonts/segoeui/seguili.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Segoe UI Black";
+  src: url("./fonts/segoeui/seguibl.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Segoe UI Black Italic";
+  src: url("./fonts/segoeui/seguibli.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Segoe UI Semilight";
+  src: url("./fonts/segoeui/segoeuisl.ttf") format("truetype");
+  font-weight: 350;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Segoe UI Semilight Italic";
+  src: url("./fonts/segoeui/seguisli.ttf") format("truetype");
+  font-weight: 350;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Arial Rounded MT Bold";
+  src: url("./fonts/ARLRDBD.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Britannic Bold";
+  src: url("./fonts/BRITANIC.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bahnschrift";
+  src: url("./fonts/bahnschrift.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bahnschrift {
+  font-family: "Bahnschrift", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+// Clases para cada fuente
+.segoe-ui {
+  font-family: "Segoe UI", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+.segoe-ui-italic {
+  font-family: "Segoe UI Italic", sans-serif;
+  font-weight: normal;
+  font-style: italic;
+}
+.segoe-ui-light {
+  font-family: "Segoe UI Light", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.segoe-ui-bold {
+  font-family: "Segoe UI Bold", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.segoe-ui-bold-italic {
+  font-family: "Segoe UI Bold Italic", sans-serif;
+  font-weight: bold;
+  font-style: italic;
+}
+.segoe-ui-semibold {
+  font-family: "Segoe UI Semibold", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+.segoe-ui-semibold-italic {
+  font-family: "Segoe UI Semibold Italic", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+.segoe-ui-light-italic {
+  font-family: "Segoe UI Light Italic", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+.segoe-ui-black {
+  font-family: "Segoe UI Black", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+.segoe-ui-black-italic {
+  font-family: "Segoe UI Black Italic", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+.segoe-ui-semilight {
+  font-family: "Segoe UI Semilight", sans-serif;
+  font-weight: 350;
+  font-style: normal;
+}
+.segoe-ui-semilight-italic {
+  font-family: "Segoe UI Semilight Italic", sans-serif;
+  font-weight: 350;
+  font-style: italic;
+}
+
+// Clases para las fuentes
+.arial-rounded-bold {
+  font-family: "Arial Rounded MT Bold", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.britannic-bold {
+  font-family: "Britannic Bold", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+
+// Proyecto
+
+.bg-ar-primary {
+  background-color: $c-primary !important;
+}
+.bg-ar-secondary {
+  background-color: $c-secondary !important;
+}
+.text-ar-primary {
+  color: $c-primary !important;
+}
+.text-ar-secondary {
+  color: $c-secondary !important;
+}
+
+#app {
+  font-family: "Segoe UI Semilight", sans-serif;
+  font-weight: 350;
+  font-style: normal;
+  font-size: 10pt;
+}
+section {
+  margin-bottom: 1rem;
+}
+/* PAGE */
+.page-a4 {
+  width: 210mm;
+  height: 297mm;
+  overflow: hidden;
+  position: relative;
+}
+.page-a4 .row {
+  height: 100%;
+}
+// .page-a4 [class^="col-"] {
+// }
+
+/* HOME */
+#portada {
+  .home {
+    &__figure-logo {
+      margin-top: 60px;
+    }
+    &__logo {
+      width: 508.827px;
+    }
+    &__figure-footer {
+      position: relative;
+      left: 0;
+      top: 6px;
+    }
+    &__anio {
+      width: 420px;
+    }
+    &__anio-text {
+      font-family: "Bahnschrift", sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 48pt;
+      color: #404040;
+      //
+      text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white,
+        -2px 2px 0px white, 4px 4px 0px #8acbf7, -4px -4px 0px #8acbf7,
+        4px -4px 0px #8acbf7, -4px 4px 0px #8acbf7;
+    }
+  }
+}
+
+/* PAGES */
+/* header */
+.page-all {
+  .page-a4 {
+    position: relative;
+    background-image: url("@/images/fondo-opacity.png");
+    background-size: auto;
+    background-repeat: no-repeat;
+    // background-position: calc(100% + -27px) calc(50% + 120px);
+    background-position: calc(100% + -27px) center;
+  }
+
+  // .page-a4::before {
+  //   content: "";
+  //   background-image: url("/image/fondo.png");
+  //   background-size: auto;
+  //   background-repeat: no-repeat;
+  //   background-position: calc(100% + -27px) center;
+  //   opacity: 0.6;
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   z-index: -1; /* Envía el fondo detrás del contenido */
+  // }
+
+  .header {
+    padding-top: 14px;
+    // padding-left: 25px;
+    // padding-right: 25px;
+    padding-left: 33px;
+    padding-right: 22px;
+    opacity: 0.5;
+    margin-bottom: 0.5rem;
+  }
+  .footer {
+    // padding-left: 25px;
+    // padding-right: 25px;
+    padding-left: 33px;
+    padding-right: 25px;
+    opacity: 0.5;
+    // padding-bottom: 15px;
+    padding-bottom: 13px;
+  }
+
+  &__content {
+    padding-left: 85px;
+    padding-right: 85px;
+    //
+    overflow-y: hidden;
+    max-height: calc(297mm + -94.27px + -97.77px);
+  }
+}
+
+.sangria {
+  p {
+    text-indent: 45px;
+  }
+}
+
+.alert-subrayado {
+  border: 1px solid #4a7ebb;
+  border-radius: 0.5rem;
+  // padding: 0.25rem 1.25rem;
+  padding: 0.25rem 0;
+  max-width: 576px;
+  margin: auto;
+  margin-bottom: 13px;
+  background-color: #fff;
+  *{
+    background-color: #fff;
+  }
+}
+
+.last-sections {
+  text-align: left;
+  &__title {
+    font-family: "Britannic Bold", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    color: $c-tertiary;
+    font-size: 12pt;
+  }
+  &__response {
+    font-size: 11pt;
+  }
+}
+.medios-de-pago {
+  &__img {
+    width: 450px;
+  }
+}
+
+// firma
+.firma {
+  font-size: 11pt;
+  margin-top: 5rem !important;
+  &__img {
+    width: 200px;
+  }
+}
+
+// Prospecto
+.prospecto {
+  &__anio-name {
+    * {
+      font-size: 9pt;
+      font-style: italic;
+    }
+  }
+  &__title {
+    * {
+      font-family: "Arial Rounded MT Bold", sans-serif;
+      font-weight: bold;
+      font-style: normal;
+      text-decoration: underline;
+      font-size: 14pt;
+    }
+  }
+  &__business {
+    font-size: 11pt;
+    text-decoration: underline;
+  }
+  &__text {
+    * {
+      font-size: 11pt;
+    }
+  }
+}
+
+// Tabla
+.tables {
+  table {
+    * {
+      font-family: "Segoe UI Light", sans-serif;
+      font-style: normal;
+    }
+  }
+  &__title {
+    font-family: "Britannic Bold", sans-serif;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 16pt;
+  }
+  tr {
+    th,
+    td {
+      max-width: 33.3333%;
+      width: 33.3333%;
+    }
+    th {
+      font-size: 12pt;
+      padding-block: 0.15rem !important;
+      font-weight: bold;
+    }
+    td {
+      font-size: 10pt;
+      background-color: transparent !important;
+      &:not(.table-subtitle) {
+        padding: 0.25rem 0.25rem 0.25rem 0.25rem !important;
+      }
+    }
+
+    .table-subtitle {
+      font-weight: bold;
+      background-color: $c-secondary !important;
+      padding-block: 0.25rem !important;
+    }
+    .table-message {
+      * {
+        color: #76923c;
+        font-weight: bold;
+        font-size: 12pt;
+      }
+    }
+
+    .table-price-1 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 12pt;
+      background-color: #daeef3 !important;
+    }
+    .table-price-2 {
+      text-align: center;
+      font-weight: bold;
+      font-size: 16pt;
+      color: #fff;
+      background-color: #4bacc6 !important;
+    }
+
+    ul {
+      padding-left: 10px;
+      list-style-type: none;
+      position: relative;
+      margin-bottom: 0;
+      font-size: 10pt;
+      li {
+        font-size: 10pt;
+        &::before {
+          content: "-";
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  @at-root .table-text-final {
+    text-align: center;
+    &__first {
+      font-style: italic;
+      font-size: 11pt;
+    }
+    &__img {
+      max-width: 100%;
+    }
+    &__last {
+      font-weight: bold;
+      font-size: 11pt;
+      color: #ff0000;
+      font-style: italic;
+    }
+  }
+}
+
+
+.botones-edit{
+    position: fixed;
+    z-index: 10;
+    left: .5rem;
+    top: 7rem;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: .75rem;
+    &.mt-8{
+        margin-top: 6.2rem;
+    }
+}
