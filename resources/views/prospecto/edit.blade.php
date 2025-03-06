@@ -20,10 +20,11 @@
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", ()=> {
-        // Espera 2 segundos (2000 milisegundos) y luego recarga la página
+        const capa = document.querySelector("#capa");
+        capa.classList.add("active");
         setTimeout(function() {
           window.location.reload();
-        }, 1000); // Ajusta el tiempo según sea necesario
+        }, 2000);
       });
     </script>
   @endif
@@ -182,7 +183,7 @@
 
     <div class="form-group mt-3">
         <div class="botones-edit">
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button id="btn-guardar" type="submit" class="btn btn-primary">Guardar</button>
             <a target="_blank" href="{{ route('prospecto.show') }}" class="btn btn-info mr-2 text-white">Ver</a>
         </div>
     </div>
@@ -192,12 +193,15 @@
     <form action="{{ route('prospecto.restore') }}" method="POST" class="mt-3">
     @csrf
     <div class="botones-edit mt-8">
-        <button type="submit" class="btn btn-warning text-white"
+        <button id="btn-restaurar" type="submit" class="btn btn-warning text-white"
         onclick="return confirm('¿Estás seguro que deseas restaurar los valores originales?')">
         <i class="fas fa-undo"></i> Restaurar
         </button>
     </div>
     </form>
+  </div>
+  <div id="capa" class="">
+    <span class="loader"></span>
   </div>
 @endsection
 
@@ -213,5 +217,18 @@
     height: 300, // Altura del editor
     branding: false, // Oculta la marca de TinyMCE
     });
+  </script>
+  <script>
+
+    document.addEventListener("DOMContentLoaded",()=>{
+      const botones = document.querySelectorAll(`#btn-guardar,#btn-restaurar`);
+      Array.from(botones).forEach((item) => {
+        item.addEventListener("click", ()=>{
+          const capa = document.querySelector("#capa");
+          capa.classList.add("active");
+        })
+      });
+    })
+
   </script>
 @endsection
