@@ -23,7 +23,7 @@
         const capa = document.querySelector("#capa");
         capa.classList.add("active");
         setTimeout(function() {
-          window.location.reload();
+          window.location.reload(true);
         }, 2000);
       });
     </script>
