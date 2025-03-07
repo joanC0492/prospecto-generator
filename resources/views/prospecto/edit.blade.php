@@ -16,16 +16,16 @@
 
     @if(session('success'))
     <div class="alert alert-success">
-      {{ session('success') }}
+    {{ session('success') }}
     </div>
     <script>
-      document.addEventListener("DOMContentLoaded", ()=> {
-        const capa = document.querySelector("#capa");
-        capa.classList.add("active");
-        // setTimeout(function() {
-        window.location.href = "{{ route('prospecto.edit') }}";
-        // }, 2000);
-      });
+    document.addEventListener("DOMContentLoaded", () => {
+      const capa = document.querySelector("#capa");
+      capa.classList.add("active");
+      setTimeout(function () {
+      window.location.href = "{{ route('prospecto.edit') }}";
+      }, 1500);
+    });
     </script>
   @endif
 
@@ -38,31 +38,31 @@
       <div class="card-body">
       <div class="form-group">
         <div class="row">
-            <div class="col-6">
-                <label>Logo</label>
-                <input type="file" name="logo" class="form-control" accept="image/*">
-                <small>Imagen actual: {{ $prospecto['portada']['logo'] }}</small>
-            </div>
-            <div class="col-6">
-                <label>Hero</label>
-                <input type="file" name="hero" class="form-control" accept="image/*">
-                <small>Imagen actual: {{ $prospecto['portada']['hero'] }}</small>
-            </div>
+        <div class="col-6">
+          <label>Logo</label>
+          <input type="file" name="logo" class="form-control" accept="image/*">
+          <small>Imagen actual: {{ $prospecto['portada']['logo'] }}</small>
+        </div>
+        <div class="col-6">
+          <label>Hero</label>
+          <input type="file" name="hero" class="form-control" accept="image/*">
+          <small>Imagen actual: {{ $prospecto['portada']['hero'] }}</small>
+        </div>
         </div>
       </div>
 
       <div class="form-group mt-2">
         <div class="row">
-            <div class="col-6">
-                <label>Año</label>
-                <input type="file" name="anio" class="form-control" accept="image/*">
-                <small>Imagen actual: {{ $prospecto['portada']['anio'] }}</small>
-            </div>
-            <div class="col-6">
-                <label>Footer</label>
-                <input type="file" name="footer" class="form-control" accept="image/*">
-                <small>Imagen actual: {{ $prospecto['portada']['footer'] }}</small>
-            </div>
+        <div class="col-6">
+          <label>Año</label>
+          <input type="file" name="anio" class="form-control" accept="image/*">
+          <small>Imagen actual: {{ $prospecto['portada']['anio'] }}</small>
+        </div>
+        <div class="col-6">
+          <label>Footer</label>
+          <input type="file" name="footer" class="form-control" accept="image/*">
+          <small>Imagen actual: {{ $prospecto['portada']['footer'] }}</small>
+        </div>
         </div>
 
       </div>
@@ -103,52 +103,60 @@
       <!-- Modulos -->
       @foreach ($prospecto['modulos'] as $index => $modulo)
       <div class="form-group mt-3">
-        <label class="h6 fw-bold">{{$modulo['nombre']}}</label>
-        <select id="modulo_pagina_{{ $index }}" name="modulos[{{ $index }}][pagina]" class="form-control">
-          <option value="1" {{ $modulo['pagina'] == 1 ? 'selected' : '' }}>Tabla 1</option>
-          <option value="2" {{ $modulo['pagina'] == 2 ? 'selected' : '' }}>Tabla 2</option>
-          <option value="3" {{ $modulo['pagina'] == 3 ? 'selected' : '' }}>Tabla 3</option>
-        </select>
-        <div class="row">
-          @foreach ($modulo['columnas'] as $colIndex => $columna)
-            <div class="col-4">
-              <p class="mb-0 mt-1">Plan @for($i=0;$i<=$colIndex;$i++)✫@endfor</p>
-              <textarea id="modulos_{{ $index }}_{{ $colIndex }}" name="modulos[{{ $index }}][columnas][{{ $colIndex }}]" class="form-control">{{ $columna }}</textarea>
-            </div>
-          @endforeach
-        </div>
+      <label class="h6 fw-bold">{{$modulo['nombre']}}</label>
+      <select id="modulo_pagina_{{ $index }}" name="modulos[{{ $index }}][pagina]" class="form-control">
+      <option value="1" {{ $modulo['pagina'] == 1 ? 'selected' : '' }}>Tabla 1</option>
+      <option value="2" {{ $modulo['pagina'] == 2 ? 'selected' : '' }}>Tabla 2</option>
+      <option value="3" {{ $modulo['pagina'] == 3 ? 'selected' : '' }}>Tabla 3</option>
+      </select>
+      <div class="row">
+      @foreach ($modulo['columnas'] as $colIndex => $columna)
+      <div class="col-4">
+      <p class="mb-0 mt-1">Plan @for($i = 0; $i <= $colIndex; $i++)✫@endfor</p>
+      <textarea id="modulos_{{ $index }}_{{ $colIndex }}"
+      name="modulos[{{ $index }}][columnas][{{ $colIndex }}]" class="form-control">{{ $columna }}</textarea>
       </div>
-      @endforeach
+    @endforeach
+      </div>
+      </div>
+    @endforeach
       <div class="form-group mt-3">
         <label>Tabla Horario</label>
-        <input type="text" name="tabla_horario" class="form-control" value="{{ $prospecto['texto']['tabla_horario'] }}">
+        <input type="text" name="tabla_horario" class="form-control"
+        value="{{ $prospecto['texto']['tabla_horario'] }}">
       </div>
       <div class="form-group mt-3">
         <label>SubPrecios</label>
         <div class="row">
-            <div class="col-4">
-                <input type="number" name="tabla_subprecio_1" class="form-control" value="{{ $prospecto['texto']['tabla_subprecio_1'] }}">
-            </div>
-            <div class="col-4">
-                <input type="number" name="tabla_subprecio_2" class="form-control" value="{{ $prospecto['texto']['tabla_subprecio_2'] }}">
-            </div>
-            <div class="col-4">
-                <input type="number" name="tabla_subprecio_3" class="form-control" value="{{ $prospecto['texto']['tabla_subprecio_3'] }}">
-            </div>
+        <div class="col-4">
+          <input type="number" name="tabla_subprecio_1" class="form-control"
+          value="{{ $prospecto['texto']['tabla_subprecio_1'] }}">
+        </div>
+        <div class="col-4">
+          <input type="number" name="tabla_subprecio_2" class="form-control"
+          value="{{ $prospecto['texto']['tabla_subprecio_2'] }}">
+        </div>
+        <div class="col-4">
+          <input type="number" name="tabla_subprecio_3" class="form-control"
+          value="{{ $prospecto['texto']['tabla_subprecio_3'] }}">
+        </div>
         </div>
       </div>
       <div class="form-group mt-3">
         <label>Precios</label>
         <div class="row">
-            <div class="col-4">
-                <input type="number" name="tabla_precio_1" class="form-control" value="{{ $prospecto['texto']['tabla_precio_1'] }}">
-            </div>
-            <div class="col-4">
-                <input type="number" name="tabla_precio_2" class="form-control" value="{{ $prospecto['texto']['tabla_precio_2'] }}">
-            </div>
-            <div class="col-4">
-                <input type="number" name="tabla_precio_3" class="form-control" value="{{ $prospecto['texto']['tabla_precio_3'] }}">
-            </div>
+        <div class="col-4">
+          <input type="number" name="tabla_precio_1" class="form-control"
+          value="{{ $prospecto['texto']['tabla_precio_1'] }}">
+        </div>
+        <div class="col-4">
+          <input type="number" name="tabla_precio_2" class="form-control"
+          value="{{ $prospecto['texto']['tabla_precio_2'] }}">
+        </div>
+        <div class="col-4">
+          <input type="number" name="tabla_precio_3" class="form-control"
+          value="{{ $prospecto['texto']['tabla_precio_3'] }}">
+        </div>
         </div>
       </div>
 
@@ -160,32 +168,33 @@
       <div class="card-header">Pago y Firma</div>
       <div class="card-body">
       <!-- Modulos -->
-        <div class="form-group">
-            <div class="row">
-                <div class="col-6">
-                    <label>Medios de Pago</label>
-                    <input type="file" name="medios_pago" class="form-control" accept="image/*">
-                    <small>Imagen actual: {{ $prospecto['portada']['medios_pago'] }}</small>
-                </div>
-                <div class="col-6">
-                    <label>Firma</label>
-                    <input type="file" name="firma" class="form-control" accept="image/*">
-                    <small>Imagen actual: {{ $prospecto['portada']['firma'] }}</small>
-                </div>
-            </div>
+      <div class="form-group">
+        <div class="row">
+        <div class="col-6">
+          <label>Medios de Pago</label>
+          <input type="file" name="medios_pago" class="form-control" accept="image/*">
+          <small>Imagen actual: {{ $prospecto['portada']['medios_pago'] }}</small>
         </div>
-        <div class="form-group mt-3">
-            <label>Validez de la proforma</label>
-            <input type="text" name="validez_proforma" class="form-control" value="{{ $prospecto['texto']['validez_proforma'] }}">
+        <div class="col-6">
+          <label>Firma</label>
+          <input type="file" name="firma" class="form-control" accept="image/*">
+          <small>Imagen actual: {{ $prospecto['portada']['firma'] }}</small>
         </div>
+        </div>
+      </div>
+      <div class="form-group mt-3">
+        <label>Validez de la proforma</label>
+        <input type="text" name="validez_proforma" class="form-control"
+        value="{{ $prospecto['texto']['validez_proforma'] }}">
+      </div>
       </div>
     </div>
 
     <div class="form-group mt-3">
-        <div class="botones-edit">
-            <button id="btn-guardar" type="submit" class="btn btn-primary">Guardar</button>
-            <a target="_blank" href="{{ route('prospecto.show') }}" class="btn btn-info mr-2 text-white">Ver</a>
-        </div>
+      <div class="botones-edit">
+      <button id="btn-guardar" type="submit" class="btn btn-primary">Guardar</button>
+      <a target="_blank" href="{{ route('prospecto.show') }}" class="btn btn-info mr-2 text-white">Ver</a>
+      </div>
     </div>
 
     </form>
@@ -193,10 +202,10 @@
     <form action="{{ route('prospecto.restore') }}" method="POST" class="mt-3">
     @csrf
     <div class="botones-edit mt-8">
-        <button id="btn-restaurar" type="submit" class="btn btn-warning text-white"
-        onclick="return confirm('¿Estás seguro que deseas restaurar los valores originales?')">
-        <i class="fas fa-undo"></i> Restaurar
-        </button>
+      <button id="btn-restaurar" type="submit" class="btn btn-warning text-white"
+      onclick="return confirm('¿Estás seguro que deseas restaurar los valores originales?')">
+      <i class="fas fa-undo"></i> Restaurar
+      </button>
     </div>
     </form>
   </div>
@@ -220,14 +229,14 @@
   </script>
   <script>
 
-    document.addEventListener("DOMContentLoaded",()=>{
-      const botones = document.querySelectorAll(`#btn-guardar,#btn-restaurar`);
-      Array.from(botones).forEach((item) => {
-        item.addEventListener("click", ()=>{
-          const capa = document.querySelector("#capa");
-          capa.classList.add("active");
-        })
-      });
+    document.addEventListener("DOMContentLoaded", () => {
+    const botones = document.querySelectorAll(`#btn-guardar,#btn-restaurar`);
+    Array.from(botones).forEach((item) => {
+      item.addEventListener("click", () => {
+      const capa = document.querySelector("#capa");
+      capa.classList.add("active");
+      })
+    });
     })
 
   </script>
