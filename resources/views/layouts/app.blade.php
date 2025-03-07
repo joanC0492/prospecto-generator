@@ -8,7 +8,7 @@
   <link rel="icon" href="https://arguz.pe/wp-content/uploads/2024/07/cropped-arguz-favicon-iPad-32x32.png"
     sizes="32x32" />
   <title>{{ config('app.name', 'Laravel') }}</title>
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.bunny.net">
   <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
