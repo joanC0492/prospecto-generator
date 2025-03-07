@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-  return view('welcome');
+  return auth()->check()
+      ? redirect()->route('prospecto.show')
+      : view('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -27,10 +29,6 @@ Route::middleware('auth')->group(function () {
       ->name('prospecto.update');
     Route::post('/restore', [ProspectoController::class, 'restore'])
       ->name('prospecto.restore');
-  });
-
-  Route::get("/", function () {
-    return redirect()->route("prospecto.show");
   });
 });
 

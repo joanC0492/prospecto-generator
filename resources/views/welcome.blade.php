@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="https://arguz.pe/wp-content/uploads/2024/07/cropped-arguz-favicon-iPad-32x32.png"
-  sizes="32x32" />
+    sizes="32x32" />
   <title>Generador de Prospectos</title>
   <style>
     /* Estilos generales */
@@ -78,8 +79,6 @@
     <div class="buttons">
       <!-- Enlace para iniciar sesión -->
       <a href="{{ route('login') }}" class="btn">Iniciar Sesión</a>
-      <!-- Enlace para registrarse -->
-      <!-- <a href="{{ route('register') }}" class="btn btn-register">Registro</a> -->
     </div>
   </div>
 </body>
