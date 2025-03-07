@@ -24,7 +24,7 @@
       capa.classList.add("active");
       setTimeout(function () {
       window.location.href = "{{ route('prospecto.edit') }}";
-      }, 1500);
+      }, 2000);
     });
     </script>
   @endif
