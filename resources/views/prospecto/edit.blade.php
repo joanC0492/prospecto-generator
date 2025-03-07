@@ -22,10 +22,9 @@
       document.addEventListener("DOMContentLoaded", ()=> {
         const capa = document.querySelector("#capa");
         capa.classList.add("active");
-        setTimeout(function() {
-          // window.location.reload(true);
-          window.location.href = "{{ route('prospecto.edit') }}";
-        }, 2000);
+        // setTimeout(function() {
+        window.location.href = "{{ route('prospecto.edit') }}";
+        // }, 2000);
       });
     </script>
   @endif
