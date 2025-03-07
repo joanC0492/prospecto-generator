@@ -11,8 +11,8 @@
 @endsection
 
 @section('content')
-  <div class="container py-5">
-    <h1>Editar Prospecto</h1>
+  <div class="container pb-5">
+    <h1 class="text-center">Editar Prospecto</h1>
 
     @if(session('success'))
     <div class="alert alert-success">

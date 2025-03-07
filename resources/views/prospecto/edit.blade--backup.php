@@ -3,8 +3,8 @@
 @section("title", "Editar Prospecto")
 
 @section('content')
-  <div class="container my-4">
-    <h1>Editar Prospecto</h1>
+  <div class="container mb-4">
+    <h1 class="text-center">Editar Prospecto</h1>
 
   @if(session('success'))
     <div class="alert alert-success">

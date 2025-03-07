@@ -1,21 +1,37 @@
 <?php
-
 use App\Http\Controllers\ProspectoController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-// En routes/web.php
-Route::get('/prospecto', [ProspectoController::class, 'show'])
-  ->name('prospecto.show');
 
-Route::get('/prospecto/edit', [ProspectoController::class, 'edit'])
-  ->name('prospecto.edit');
-
-Route::put('/prospecto/update', [ProspectoController::class, 'update'])
-  ->name('prospecto.update');
-
-Route::post('/prospecto/restore', [ProspectoController::class, 'restore'])
-  ->name('prospecto.restore');
-
-Route::get("/", function(){
-    return redirect("/prospecto");
+Route::get('/', function () {
+  return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+  return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+  Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+  // Prospecto
+  Route::prefix("prospecto")->group(function () {
+    Route::get('/', [ProspectoController::class, 'show'])
+      ->name('prospecto.show');
+    Route::get('/edit', [ProspectoController::class, 'edit'])
+      ->name('prospecto.edit');
+    Route::put('/update', [ProspectoController::class, 'update'])
+      ->name('prospecto.update');
+    Route::post('/restore', [ProspectoController::class, 'restore'])
+      ->name('prospecto.restore');
+  });
+
+  Route::get("/", function () {
+    return redirect()->route("prospecto.show");
+  });
+});
+
+require __DIR__ . '/auth.php';
