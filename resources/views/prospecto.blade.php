@@ -63,10 +63,13 @@
                             <p class="mb-0">{{ config("prospecto.texto.lugar_fecha") }}</p>
                         </div>
                         <div>
-                            <p class="mb-0">SEÑOR:</p>
-                            <p class="mb-0">……………………………..</p>
+                            <!-- Titular -->
+                            <p class="mb-0">SEÑOR(ES):</p>
+                            <!-- <p class="mb-0">……………………………..</p> -->
+                            <p class="mb-0" style="text-decoration:underline;text-decoration-style:dotted;font-size:11pt">{{ config("prospecto.texto.titular") }}&nbsp;&nbsp;&nbsp;</p>
                             <p>
-                                <span class="prospecto__business">{{ config("prospecto.texto.empresa") }}</span>
+                                <!-- ciudad -->
+                                <span class="prospecto__business">{{ config("prospecto.texto.ciudad") }}</span>
                                 <span>–</span>
                             </p>
                         </div>

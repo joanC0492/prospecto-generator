@@ -86,8 +86,12 @@
         <input type="text" name="lugar_fecha" class="form-control" value="{{ $prospecto['texto']['lugar_fecha'] }}">
       </div>
       <div class="form-group mt-2">
-        <label>Empresa</label>
-        <input type="text" name="empresa" class="form-control" value="{{ $prospecto['texto']['empresa'] }}">
+        <label>Titular</label>
+        <input type="text" name="titular" class="form-control" value="{{ $prospecto['texto']['titular'] }}">
+      </div>
+      <div class="form-group mt-2">
+        <label>Ciudad</label>
+        <input type="text" name="ciudad" class="form-control" value="{{ $prospecto['texto']['ciudad'] }}">
       </div>
       <div class="form-group mt-2">
         <label>Texto de Presentación</label>
