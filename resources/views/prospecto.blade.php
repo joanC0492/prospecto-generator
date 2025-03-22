@@ -66,7 +66,7 @@
                             <!-- Titular -->
                             <p class="mb-0">SEÑOR(ES):</p>
                             <!-- <p class="mb-0">……………………………..</p> -->
-                            <p class="mb-0" style="text-decoration:underline;text-decoration-style:dotted;font-size:11pt">{{ config("prospecto.texto.titular") }}&nbsp;&nbsp;&nbsp;</p>
+                            <p class="mb-0" style="text-decoration:underline;text-decoration-style:dotted;font-size:11pt;font-weight: bold;">{{ config("prospecto.texto.titular") }}&nbsp;&nbsp;&nbsp;</p>
                             <p>
                                 <!-- ciudad -->
                                 <span class="prospecto__business">{{ config("prospecto.texto.ciudad") }}</span>
