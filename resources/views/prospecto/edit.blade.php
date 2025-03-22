@@ -130,7 +130,7 @@
         value="{{ $prospecto['texto']['tabla_horario'] }}">
       </div>
       <div class="form-group mt-3">
-        <label>SubPrecios</label>
+        <label>Activación</label>
         <div class="row">
         <div class="col-4">
           <input type="number" name="tabla_subprecio_1" class="form-control"
@@ -147,7 +147,7 @@
         </div>
       </div>
       <div class="form-group mt-3">
-        <label>Precios</label>
+        <label>Pago mensual:</label>
         <div class="row">
         <div class="col-4">
           <input type="number" name="tabla_precio_1" class="form-control"

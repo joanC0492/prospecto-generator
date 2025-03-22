@@ -27,8 +27,11 @@ document.addEventListener("DOMContentLoaded", () => {
         pdf.addImage(imgData, "PNG", 0, yOffset, imgWidth, imgHeight);
         console.log(imgHeight);
       }
-
-      pdf.save("documento.pdf");
+      const titleDocument = document.querySelector(".prospecto__title").textContent.trim();
+      const owner = document.querySelector(".prospecto__owner").textContent.trim();
+      const fileName = `${titleDocument} - ${owner}.pdf`;
+      console.log(fileName);
+      pdf.save(fileName);
     };
 
     const button = document.createElement("button");

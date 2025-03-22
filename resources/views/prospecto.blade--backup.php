@@ -327,8 +327,8 @@
                                 pagará por documento adicional según los siguientes rangos:
                             </p>
                             <img src={{ asset("/image/tabla-precios.png")}} alt="Tabla Rangos" />
-                            <p class="table-text-final__last">
-                                Nota: Precios no incluyen IGV y se pagan por adelantado
+                            <p class="table-text-final__last text-start">
+                            NOTA: Todos los montos y precios de esta proforma son expresados SIN IGV y se pagan por adelantado.
                             </p>
                         </div>
                         <div class="last-sections medios-de-pago">

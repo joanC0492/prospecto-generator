@@ -142,7 +142,7 @@ class ProspectoController extends Controller
         'tabla_precio_2' => '129',
         'tabla_precio_3' => '179',
         'tabla_final_texto' => 'Cada empresa (por RUC) al exceder su límite de cpe mensual pagará por documento adicional según los siguientes rangos:',
-        'tabla_nota'=> 'Nota: Precios no incluyen IGV y se pagan por adelantado',
+        'tabla_nota'=> 'NOTA: Todos los montos y precios de esta proforma son expresados SIN IGV y se pagan por adelantado.',
         'validez_proforma' => 'Febrero 2025'
       ],
       'modulos' => [

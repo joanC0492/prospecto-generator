@@ -66,7 +66,7 @@
                             <!-- Titular -->
                             <p class="mb-0">SEÑOR(ES):</p>
                             <!-- <p class="mb-0">……………………………..</p> -->
-                            <p class="mb-0" style="text-decoration:underline;text-decoration-style:dotted;font-size:11pt;font-weight: bold;">{{ config("prospecto.texto.titular") }}&nbsp;&nbsp;&nbsp;</p>
+                            <p class="mb-0 prospecto__owner" style="text-decoration:underline;text-decoration-style:dotted;font-size:11pt;font-weight: bold;">{{ config("prospecto.texto.titular") }}&nbsp;&nbsp;&nbsp;</p>
                             <p>
                                 <!-- ciudad -->
                                 <span class="prospecto__business">{{ config("prospecto.texto.ciudad") }}</span>
@@ -179,24 +179,30 @@
                         <!-- Precio 1 -->
                         <tr>
                             <td class="table-price-1">
+                                <p class="mb-0" style="font-size: 11pt;">Activación:</p>
                                 <div>S/ {{ config("prospecto.texto.tabla_subprecio_1") }}</div>
                             </td>
                             <td class="table-price-1">
+                              <p class="mb-0" style="font-size: 11pt;">Activación:</p>
                               <div>S/ {{ config("prospecto.texto.tabla_subprecio_2") }}</div>
                             </td>
                             <td class="table-price-1">
+                              <p class="mb-0" style="font-size: 11pt;">Activación:</p>
                               <div>S/ {{ config("prospecto.texto.tabla_subprecio_3") }}</div>
                             </td>
                         </tr>
                         <!-- Precio 2 -->
                         <tr>
                             <td class="table-price-2">
+                              <p class="mb-0" style="font-size: 11pt;">Pago mensual:</p>
                               <div>S/ {{ config("prospecto.texto.tabla_precio_1") }}</div>
                             </td>
                             <td class="table-price-2">
+                              <p class="mb-0" style="font-size: 11pt;">Pago mensual:</p>
                               <div>S/ {{ config("prospecto.texto.tabla_precio_2") }}</div>
                             </td>
                             <td class="table-price-2">
+                              <p class="mb-0" style="font-size: 11pt;">Pago mensual:</p>
                               <div>S/ {{ config("prospecto.texto.tabla_precio_3") }}</div>
                             </td>
                         </tr>
@@ -228,7 +234,7 @@
                               {{ config("prospecto.texto.tabla_final_texto") }}
                             </p>
                             <img src={{ asset(config("prospecto.portada.tabla_final_image"))}} alt="Tabla Rangos" />
-                            <p class="table-text-final__last">
+                            <p class="table-text-final__last text-start">
                                 {{ config("prospecto.texto.tabla_nota") }}
                             </p>
                         </div>
