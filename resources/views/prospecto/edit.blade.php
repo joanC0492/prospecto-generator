@@ -3,6 +3,7 @@
 @section("title", "Editar Prospecto")
 
 @section("head")
+  <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
   <style>
     #app {
     background-color: #F0F2F4;
@@ -219,9 +220,8 @@
 @endsection
 
 @section("script")
-  <script src="https://cdn.tiny.cloud/1/xe8aawpzrkkcmj1liuqshqogzi37wa0uh4jxzzradacq8nxk/tinymce/6/tinymce.min.js"
-    referrerpolicy="origin"></script>
-  <script>
+  <script src="https://cdn.tiny.cloud/1/gel7fdioeucyfu96ck6bumm74t880jwgbtleertkqb6gl0ih/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
     tinymce.init({
     selector: 'textarea#texto_presentacion, textarea[id^="modulos_"]',
     plugins: 'lists link image table code help wordcount', // Plugins que deseas habilitar
@@ -230,7 +230,18 @@
     height: 300, // Altura del editor
     branding: false, // Oculta la marca de TinyMCE
     });
+    </script>
+
+  <!-- Include the Quill library -->
+  <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+  <!-- Initialize Quill editor -->
+  <script>
+    /*const quill = new Quill('#editor', {*/
+    const quill = new Quill('.editor-quill', {
+    theme: 'snow'
+    });
   </script>
+
   <script>
 
     document.addEventListener("DOMContentLoaded", () => {

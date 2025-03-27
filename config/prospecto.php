@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'portada' =>
+  'portada' => 
   array (
     'logo' => '/image/logo.png',
     'hero' => '/image/home-hero.png',
@@ -11,7 +11,7 @@ return array (
     'medios_pago' => '/image/pagos.jpg',
     'firma' => '/image/firma-arguz.png',
   ),
-  'texto' =>
+  'texto' => 
   array (
     'anio_texto' => 'Año de la recuperación y consolidación de la economía peruana',
     'proforma_numero' => 'PROFORMA N° 0242 – 2025 – AA/GC',
@@ -31,13 +31,13 @@ return array (
     'tabla_nota' => 'NOTA: Todos los montos y precios de esta proforma son expresados SIN IGV y se pagan por adelantado.',
     'validez_proforma' => 'Febrero 2025',
   ),
-  'modulos' =>
+  'modulos' => 
   array (
-    0 =>
+    0 => 
     array (
       'nombre' => 'Módulo de Compras',
       'pagina' => '1',
-      'columnas' =>
+      'columnas' => 
       array (
         0 => '<ul>
 <li>Lista y categorizaci&oacute;n de productos</li>
@@ -54,11 +54,11 @@ return array (
 </ul>',
       ),
     ),
-    1 =>
+    1 => 
     array (
       'nombre' => 'Módulo de Ventas',
       'pagina' => '1',
-      'columnas' =>
+      'columnas' => 
       array (
         0 => '<ul>
 <li>Cartera de clientes</li>
@@ -75,11 +75,11 @@ return array (
 </ul>',
       ),
     ),
-    2 =>
+    2 => 
     array (
       'nombre' => 'Módulo de Caja',
       'pagina' => '1',
-      'columnas' =>
+      'columnas' => 
       array (
         0 => '<ul>
 <li>Cobro de ventas</li>
@@ -99,11 +99,11 @@ return array (
 </ul>',
       ),
     ),
-    3 =>
+    3 => 
     array (
       'nombre' => 'Módulo de Almacén',
       'pagina' => '2',
-      'columnas' =>
+      'columnas' => 
       array (
         0 => NULL,
         1 => '<ul>
@@ -122,11 +122,11 @@ return array (
 </ul>',
       ),
     ),
-    4 =>
+    4 => 
     array (
       'nombre' => 'Módulo de Reportes y Configuración',
       'pagina' => '2',
-      'columnas' =>
+      'columnas' => 
       array (
         0 => '<ul>
 <li>Dashboard de ventas</li>
@@ -148,11 +148,11 @@ return array (
 </ul>',
       ),
     ),
-    5 =>
+    5 => 
     array (
       'nombre' => 'CPE con Homologación a SUNAT',
       'pagina' => '2',
-      'columnas' =>
+      'columnas' => 
       array (
         0 => '<ul>
 <li>Hasta 1000 cpe / mes</li>
