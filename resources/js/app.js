@@ -27,8 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
         pdf.addImage(imgData, "PNG", 0, yOffset, imgWidth, imgHeight);
         console.log(imgHeight);
       }
-      const titleDocument = document.querySelector(".prospecto__title").textContent.trim();
-      const owner = document.querySelector(".prospecto__owner").textContent.trim();
+      const titleDocument = document
+        .querySelector(".prospecto__title")
+        .textContent.trim();
+      const owner = document
+        .querySelector(".prospecto__owner")
+        .textContent.trim();
       const fileName = `${titleDocument} - ${owner}.pdf`;
       console.log(fileName);
       pdf.save(fileName);
@@ -53,11 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
     a.setAttribute("href", "/prospecto/edit");
   };
 
+  const initChangeInputHiddenFormEdit = () => {
+    const changeInputs = () => {
+      const inputsId = ["#texto_presentacion"];
+      for (let i = 0; i < inputsId.length; i++) {
+        const editorContent = document
+          .querySelector(`.editor-quill:has(+${inputsId[i]}) .ql-editor`)
+          .innerHTML.trim();
+        document.querySelector(`${inputsId[i]}`).value = editorContent;
+      }
+    };
+
+    document.addEventListener("keypress", changeInputs);
+    document.addEventListener("keydown", changeInputs);
+    document.addEventListener("keyup", changeInputs);
+  };
+
   // Llamar a la función para inicializar el generador de PDF
   initPDFGenerator();
-
+  initChangeInputHiddenFormEdit();
   // Aquí puedes agregar más lógica que se ejecutará al cargar el DOM
   // Por ejemplo:
   // initOtraFuncionalidad();
-  // initMasCosas();
 });

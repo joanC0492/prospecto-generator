@@ -32,7 +32,7 @@ class ProspectoController extends Controller
       'medios_pago' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
       'firma' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
       // Texto
-      'texto_presentacion' => 'nullable|string', // Acepta HTML del editor
+      // 'texto_presentacion' => 'nullable|string', // Acepta HTML del editor
       'texto_tabla_horario' => 'nullable|string',
       'modulos' => 'nullable|array', // Validar que los módulos sean un array
     ]);
@@ -42,7 +42,7 @@ class ProspectoController extends Controller
     $currentConfig = require $configPath;
 
     // Procesar subida de imágenes
-    $imagenes = ['logo', 'hero', 'anio', 'footer','tabla_final_image','medios_pago','firma'];
+    $imagenes = ['logo', 'hero', 'anio', 'footer', 'tabla_final_image', 'medios_pago', 'firma'];
     foreach ($imagenes as $imagen) {
       if ($request->hasFile($imagen)) {
         // Guardar nueva imagen
@@ -112,6 +112,36 @@ class ProspectoController extends Controller
       ->with('success', 'Prospecto actualizado exitosamente');
   }
 
+  // uploadImage
+  public function uploadImage(Request $request)
+  {
+    $request->validate([
+      'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+      'tipo' => 'required|string'
+    ]);
+
+    // Obtener archivo
+    $file = $request->file('imagen');
+    $fileName = time() . '_' . $request->tipo . '.' . $file->getClientOriginalExtension();
+    $file->move(public_path('image'), $fileName);
+
+    // Guardar en la configuración
+    $configPath = config_path('prospecto.php');
+    $currentConfig = require $configPath;
+    $currentConfig['portada'][$request->tipo] = '/image/' . $fileName;
+
+    // Guardar cambios en el archivo de configuración
+    $configContent = "<?php\n\nreturn " . var_export($currentConfig, true) . ";\n";
+    File::put($configPath, $configContent);
+
+    return response()->json([
+      'success' => true,
+      'url' => asset('image/' . $fileName)
+    ]);
+  }
+
+
+
   public function restore()
   {
     // Definir los valores originales por defecto
@@ -130,7 +160,7 @@ class ProspectoController extends Controller
         'proforma_numero' => 'PROFORMA N° 0242 – 2025 – AA/GC',
         'lugar_fecha' => 'Tarapoto, 04 de febrero de 2024',
         // 'empresa' => 'Segunda Jerusalén',
-        'titular'=> 'Nombre de la persona o personas',
+        'titular' => 'Nombre de la persona o personas',
         'ciudad' => 'Segunda Jerusalén',
         'texto_presentacion' => '<p>Estimados señores, es grata la oportunidad de dirigirnos a ustedes y saludarlos cordialmente deseándoles buena salud y prosperidad, a la vez presentarle la proforma de nuestro software:</p>',
         'tabla_titulo' => 'Sistema Administrativo Comercial – Aster',
@@ -142,7 +172,7 @@ class ProspectoController extends Controller
         'tabla_precio_2' => '129',
         'tabla_precio_3' => '179',
         'tabla_final_texto' => 'Cada empresa (por RUC) al exceder su límite de cpe mensual pagará por documento adicional según los siguientes rangos:',
-        'tabla_nota'=> 'NOTA: Todos los montos y precios de esta proforma son expresados SIN IGV y se pagan por adelantado.',
+        'tabla_nota' => 'NOTA: Todos los montos y precios de esta proforma son expresados SIN IGV y se pagan por adelantado.',
         'validez_proforma' => 'Febrero 2025'
       ],
       'modulos' => [
@@ -208,7 +238,7 @@ class ProspectoController extends Controller
 
     // Eliminar imágenes actuales que no sean las originales
     $currentConfig = require $configPath;
-    $imagenes = ['logo', 'hero', 'anio', 'footer','tabla_final_image','medios_pago','firma'];
+    $imagenes = ['logo', 'hero', 'anio', 'footer', 'tabla_final_image', 'medios_pago', 'firma'];
 
     foreach ($imagenes as $imagen) {
       $currentPath = public_path(ltrim($currentConfig['portada'][$imagen], '/'));

@@ -5,7 +5,7 @@
 @section('content')
     <!-- Portada -->
     <section id="portada">
-        <div class="container page-a4" style="outline: 1px solid red">
+        <div class="container page-a4" style="outline: 1px solid #222429">
             <div class="row">
                 <div class="col-12 px-0">
                     <figure class="text-center home__figure-logo">
@@ -44,7 +44,7 @@
   unset($modulosPorPagina[1]);
 @endphp
     <section id="page-1" class="page-all">
-        <div class="container page-a4" style="outline: 1px solid red">
+        <div class="container page-a4" style="outline: 1px solid #222429">
             <div class="row">
                 <div class="col-12 px-0">
                     <div class="page-all__header">
@@ -134,7 +134,7 @@
 
 @foreach ($modulosPorPagina as $pagina => $modulos)
   <section id="page-{{ $pagina }}" class="page-all foreach">
-    <div class="container page-a4" style="outline: 1px solid red">
+    <div class="container page-a4" style="outline: 1px solid #222429">
       <div class="row">
         <div class="col-12 px-0">
           <div class="page-all__header">
@@ -220,7 +220,7 @@
 @endforeach
 
     <section id="page-3" class="page-all">
-        <div class="container page-a4" style="outline: 1px solid red">
+        <div class="container page-a4" style="outline: 1px solid #222429">
             <div class="row">
                 <div class="col-12 px-0">
                     <div class="page-all__header">

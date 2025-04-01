@@ -8,9 +8,31 @@
     #app {
     background-color: #F0F2F4;
     }
+    .editor-quill {
+    height: calc(100% + -66px + -20px);
+    max-height: 330px;
+    overflow: auto;
+    }
+
+    @media(min-width: 1400px) {
+    .editor-quill {
+      height: calc(100% + -42px + -24px);
+    }
+    }
+
+    .role-button-img{
+      display: block;
+    }
+    .role-button-img img{
+      max-height: 120px;
+      object-fit: contain;
+    }
   </style>
 @endsection
 
+@php
+  $id_modulos = [];
+@endphp
 @section('content')
   <div class="container pb-5">
     <h1 class="text-center">Editar Prospecto</h1>
@@ -30,7 +52,7 @@
     </script>
   @endif
 
-    <form action="{{ route('prospecto.update') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('prospecto.update') }}" method="POST" enctype="multipart/form-data" id="form-prospecto-update">
     @csrf
     @method('PUT')
 
@@ -40,14 +62,20 @@
       <div class="form-group">
         <div class="row">
         <div class="col-6">
-          <label>Logo</label>
-          <input type="file" name="logo" class="form-control" accept="image/*">
+          <label class="d-block">Logo</label>
           <small>Imagen actual: {{ $prospecto['portada']['logo'] }}</small>
+          <input type="file" name="logo" class="form-control d-none" accept="image/*" id="portada-logo" />
+          <label for="portada-logo" role="button" class="role-button-img">
+            <img src={{ asset(config("prospecto.portada.logo")) }} class="img-fluid" alt="Logo main"/>
+          </label>
         </div>
         <div class="col-6">
-          <label>Hero</label>
-          <input type="file" name="hero" class="form-control" accept="image/*">
+          <label class="d-block">Hero</label>
           <small>Imagen actual: {{ $prospecto['portada']['hero'] }}</small>
+          <input type="file" name="hero" class="form-control d-none" accept="image/*" id="portada-hero" />
+          <label for="portada-hero" role="button" class="role-button-img">
+            <img src={{ asset(config("prospecto.portada.hero")) }} class="img-fluid" alt="Hero Main"/>
+          </label>
         </div>
         </div>
       </div>
@@ -55,17 +83,22 @@
       <div class="form-group mt-2">
         <div class="row">
         <div class="col-6">
-          <label>Año</label>
-          <input type="file" name="anio" class="form-control" accept="image/*">
+          <label class="d-block">Año</label>
           <small>Imagen actual: {{ $prospecto['portada']['anio'] }}</small>
+          <input type="file" name="anio" class="form-control d-none" accept="image/*" id="portada-anio">
+          <label for="portada-anio" role="button" class="role-button-img">
+            <img src={{ asset(config("prospecto.portada.anio")) }} class="img-fluid" alt="Año"/>
+          </label>
         </div>
         <div class="col-6">
-          <label>Footer</label>
-          <input type="file" name="footer" class="form-control" accept="image/*">
+          <label class="d-block">Footer</label>
           <small>Imagen actual: {{ $prospecto['portada']['footer'] }}</small>
+          <input type="file" name="footer" class="form-control d-none" accept="image/*" id="portada-footer"/>
+          <label for="portada-footer" role="button" class="role-button-img">
+            <img src={{ asset(config("prospecto.portada.footer")) }} class="img-fluid" alt="Footer"/>
+          </label>
         </div>
         </div>
-
       </div>
       </div>
     </div>
@@ -96,8 +129,8 @@
       </div>
       <div class="form-group mt-2">
         <label>Texto de Presentación</label>
-        <textarea id="texto_presentacion" name="texto_presentacion"
-        class="form-control">{{ $prospecto['texto']['texto_presentacion'] }}</textarea>
+        <div class="editor-quill" data-id="texto_presentacion">{!! $prospecto['texto']['texto_presentacion'] !!}</div>
+        <input type="hidden" name="texto_presentacion" id="texto_presentacion">
       </div>
       </div>
     </div>
@@ -118,8 +151,13 @@
       @foreach ($modulo['columnas'] as $colIndex => $columna)
       <div class="col-4">
       <p class="mb-0 mt-1">Plan @for($i = 0; $i <= $colIndex; $i++)✫@endfor</p>
-      <textarea id="modulos_{{ $index }}_{{ $colIndex }}"
-      name="modulos[{{ $index }}][columnas][{{ $colIndex }}]" class="form-control">{{ $columna }}</textarea>
+      <!-- HERE FOR -->
+      <div class="editor-quill" data-id="modulos_{{ $index }}_{{ $colIndex }}">{!!  $columna !!}</div>
+      <input type="hidden" name="modulos[{{ $index }}][columnas][{{ $colIndex }}]"
+      id="modulos_{{ $index }}_{{ $colIndex }}" />
+      @php
+    $id_modulos[] = "modulos_{$index}_{$colIndex}";
+  @endphp
       </div>
     @endforeach
       </div>
@@ -176,14 +214,20 @@
       <div class="form-group">
         <div class="row">
         <div class="col-6">
-          <label>Medios de Pago</label>
-          <input type="file" name="medios_pago" class="form-control" accept="image/*">
+          <label class="d-block">Medios de Pago</label>
           <small>Imagen actual: {{ $prospecto['portada']['medios_pago'] }}</small>
+          <input type="file" name="medios_pago" class="form-control d-none" accept="image/*" id="medios_pago">
+          <label for="medios_pago" role="button" class="role-button-img">
+            <img src={{ asset(config("prospecto.portada.medios_pago")) }} class="img-fluid" alt="Medios Pago" />
+          </label>
         </div>
         <div class="col-6">
-          <label>Firma</label>
-          <input type="file" name="firma" class="form-control" accept="image/*">
+          <label class="d-block">Firma</label>
           <small>Imagen actual: {{ $prospecto['portada']['firma'] }}</small>
+          <input type="file" name="firma" class="form-control d-none" accept="image/*" id="firma">
+          <label for="firma" role="button" class="role-button-img">
+            <img src={{ asset(config("prospecto.portada.firma")) }} class="img-fluid" alt="Firma" />
+          </label>
         </div>
         </div>
       </div>
@@ -220,7 +264,7 @@
 @endsection
 
 @section("script")
-  <script src="https://cdn.tiny.cloud/1/gel7fdioeucyfu96ck6bumm74t880jwgbtleertkqb6gl0ih/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+  <!-- <script src="https://cdn.tiny.cloud/1/gel7fdioeucyfu96ck6bumm74t880jwgbtleertkqb6gl0ih/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
     tinymce.init({
     selector: 'textarea#texto_presentacion, textarea[id^="modulos_"]',
@@ -230,20 +274,45 @@
     height: 300, // Altura del editor
     branding: false, // Oculta la marca de TinyMCE
     });
-    </script>
+    </script> -->
 
   <!-- Include the Quill library -->
   <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
   <!-- Initialize Quill editor -->
   <script>
-    /*const quill = new Quill('#editor', {*/
-    const quill = new Quill('.editor-quill', {
-    theme: 'snow'
+    let editors = ['texto_presentacion'];
+    let modulos = @json($id_modulos); // Se convierte correctamente en array de JS
+    editors = editors.concat(modulos); // Une los arrays correctamente
+
+    // Instanciando los Editores de texto
+    let quill;
+    for (let i = 0; i < editors.length; i++) {
+    quill = new Quill(`[data-id=${editors[i]}]`, {
+      theme: 'snow'
+    });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const initChangeInputHiddenFormEdit = () => {
+      const changeInputs = () => {
+      console.log("Submit...!!!");
+      // editors
+      for (let i = 0; i < editors.length; i++) {
+        const editorContent = document
+        .querySelector(`.editor-quill:has(+#${editors[i]}) .ql-editor`)
+        .innerHTML.trim();
+        document.querySelector(`#${editors[i]}`).value = editorContent;
+      }
+      };
+      document.querySelector('#form-prospecto-update').addEventListener('submit', changeInputs);
+      changeInputs();
+    };
+    initChangeInputHiddenFormEdit();
     });
   </script>
 
+  <!--  -->
   <script>
-
     document.addEventListener("DOMContentLoaded", () => {
     const botones = document.querySelectorAll(`#btn-guardar,#btn-restaurar`);
     Array.from(botones).forEach((item) => {
@@ -253,6 +322,53 @@
       })
     });
     })
+  </script>
 
+  <!--  -->
+  <!-- <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const inputFiles = document.querySelectorAll(`input[type="file"][accept="image/*"]`);
+    Array.from(inputFiles).forEach(inputFile => {
+      inputFile.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (file) {
+      inputFile.nextElementSibling.querySelector("img").src = file.name;
+      }
+      })
+    });
+    });
+    </script> -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("input[type='file']").forEach(input => {
+      input.addEventListener("change", function () {
+      let file = this.files[0]; //
+      let tipo = this.name; // El nombre del input es el tipo de imagen
+
+      if (file) {
+        let formData = new FormData();
+        formData.append("imagen", file);
+        formData.append("tipo", tipo);
+        formData.append("_token", "{{ csrf_token() }}");
+
+        fetch("{{ route('prospecto.upload-image') }}", {
+          method: "POST",
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+          // Actualizar la imagen mostrada sin recargar la página
+          let imgElement = input.nextElementSibling.querySelector(`img`);
+          if (imgElement) {
+            imgElement.src = data.url;
+          }
+          }
+        })
+        .catch(error => console.error("Error al subir la imagen:", error));
+      }
+      });
+    });
+    });
   </script>
 @endsection
